@@ -17,10 +17,10 @@
     "redux-thunk": "^2.3.0"
   },
   "proxy": "http://localhost:5000",
-  "scripts": {
-    "start": "npm start",
-    "build": "npm build",
-    "test": "npm test",
+"scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
