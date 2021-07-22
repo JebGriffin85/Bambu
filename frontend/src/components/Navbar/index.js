@@ -1,58 +1,55 @@
 import React, { useState } from "react";
+import { NavLink } from 'react-router-dom';
 import { Transition } from "@headlessui/react";
 import logo from './logo.png'
+import Modal from '../LoginModal';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
-      <nav className="bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+      <nav className="bg-gray-800 ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-start">
+          <div className="flex items-center justify-start h-16">
             <div className="flex items-center">
+                <NavLink to='/' >
               <div className="flex-shrink-0">
+                  
                 <img
                   className="h-8 w-8"
                   src={logo}
-                  alt="Workflow"
+                  alt="Bambu Logo"
                 />
               </div>
+                </NavLink>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <a
-                    href="#"
-                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Dashboard
-                  </a>
+                  <NavLink to='/gallery'
+                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Gallery
+                  </NavLink>
 
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Team
-                  </a>
+                  <NavLink to='FAQ'
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    FAQ
+                  </NavLink>
 
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Projects
-                  </a>
+                  <NavLink to='about'
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    About
+                  </NavLink>
 
-                  <a
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Calendar
-                  </a>
+                  <NavLink to='booking'
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Book A Table
+                  </NavLink>
 
-                  <a
-                    href="#"
+                                  <p 
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Reports
-                  </a>
+                                  > 
+                    Login
+                  </p>
                 </div>
               </div>
             </div>
@@ -154,21 +151,6 @@ function Navbar() {
           )}
         </Transition>
       </nav>
-
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        </div>
-      </header>
-      <main>
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          {/* <!-- Replace with your content --> */}
-          <div className="px-4 py-6 sm:px-0">
-            <div className="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
-          </div>
-          {/* <!-- /End replace --> */}
-        </div>
-      </main>
     </div>
   );
 }
