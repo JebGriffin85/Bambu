@@ -16,10 +16,11 @@ function LoginFormPage({setOpen}) {
         <Redirect to="/" />
     );
 
+ 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
-        setOpen(false)
         return dispatch(sessionActions.login({ credential, password }))
             .catch(async (res) => {
                 const data = await res.json();
@@ -31,7 +32,7 @@ function LoginFormPage({setOpen}) {
         <div class="w-full max-w-xs">
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-0" onSubmit={handleSubmit}>
                 <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    {errors.map((error, idx) => <li className='text-red-600' key={idx}>{error}</li>)}
                 </ul>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -56,7 +57,7 @@ function LoginFormPage({setOpen}) {
                     />
                 </div>
                 <div class="flex items-center justify-between">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    <button class="bg-blue-100 hover:bg-gray-200 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit">Log In</button>
                 </div>
             </form>

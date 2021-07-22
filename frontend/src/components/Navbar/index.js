@@ -51,7 +51,8 @@ function Navbar() {
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                         Book A Table
                                     </NavLink>
-                                    {sessionUser ? <p onClick={handleLogout} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</p> : <p
+                                    
+                                    {sessionUser ? <p onClick={handleLogout} className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</p> : <p
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                     > <LoginModal />
                                     </p>}
