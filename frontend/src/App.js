@@ -17,6 +17,7 @@ function App() {
 
   return isLoaded && (
     <>
+    <Navbar />
     <Switch>
         <Route path="/" exact={true}>
           <Home/>

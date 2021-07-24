@@ -6,13 +6,11 @@ export default function Home () {
 
 
     return (
-        <>
-        <Navbar className='fixed' />
-            <div className='absolute w-full  h-screen '>
+        <div className=' w-full  h-screen '>
                 <img src={homePhoto} alt='plated food' className=' w-full h-full object-cover ' />
-        </div>
         <div>blah blah </div>
-        </>
+        </div>
+
 
     )
 }
