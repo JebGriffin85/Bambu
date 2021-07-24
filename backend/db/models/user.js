@@ -26,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       },
     },
+    hasReservation: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
@@ -50,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     });
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasOne(models.Reservation, { foreignKey: 'userId', onDelete: 'CASCADE'})
   };
   User.prototype.toSafeObject = function () {
   const { id, username, email } = this;
