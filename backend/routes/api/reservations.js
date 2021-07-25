@@ -9,11 +9,12 @@ const router = express.Router();
 router.get('/:date', asyncHandler (async (req, res) => {
     const date = req.params.date;
     const dateReservations = await Reservation.findAll({
-        where: { date }
-    })
-    return res.json({ dateReservations })
+        where: { date },
+        include: Table
+    });
+    return res.json(dateReservations);
 })
-)
+);
 
 
 
