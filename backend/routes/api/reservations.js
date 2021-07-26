@@ -16,7 +16,20 @@ router.get('/:date', asyncHandler (async (req, res) => {
 })
 );
 
-
+router.post('/',
+    asyncHandler(async (req, res, next) => {
+        const { date, time, userId, tableId } = req.body
+        const addReservation = await Reservation.create({
+            date,
+            time,
+            userId,
+            tableId
+        })
+        return res.json(
+            addReservation
+        )
+    })
+)
 
 
 module.exports = router;
