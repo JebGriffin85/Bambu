@@ -2,12 +2,11 @@ import { csrfFetch } from './csrf';
 
 const GET_ALL_RES = 'reservations/getAllRes';
 
-const getAllRes = (reservations) => {
-    return { 
+const getAllRes = (reservations) => ({
+
         type: GET_ALL_RES,
         payload: reservations
-    }
-}
+});
 
 
 export const thunk_getAllRes = (date) => async (dispatch) => {

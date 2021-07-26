@@ -12,14 +12,14 @@ export default function Booking () {
     const [value, setValue] = useState(new Date());
     const allRes = useSelector((state) => state.reservations.allReservations)
 
-    function hanldeClick (value) {
+    function handleClick (value) {
          dispatch(thunk_getAllRes(value))
     }
 
-useEffect(() => {
-    dispatch(thunk_getAllRes(value))
-})
-    console.log(value)
+    useEffect(() => {
+        dispatch(thunk_getAllRes(value))
+    }, [dispatch])
+
     return (
         <div>
             <Calendar
@@ -27,14 +27,13 @@ useEffect(() => {
                 value={value}
                 minDate={minDate}
                 maxDate={maxDate}
-                // onClick={() => hanldeClick()}
-                onClick={() => dispatch(thunk_getAllRes(value))}
+                onClickDay={handleClick}
             />
-            {/* {allRes.map((reservation) => {
+            {allRes.map((reservation) => {
                 return (
                     <div>{reservation.date}{reservation.Table.numofseats}</div>
                 )
-            })} */}
+            })}
         </div>
     )
 }
