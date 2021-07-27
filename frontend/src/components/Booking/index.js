@@ -12,8 +12,8 @@ export default function Booking () {
     const [date, setDate] = useState(new Date());
     const [time, setTime] = useState(7);
     const [tableId, setTableId] = useState(5);
-    const allRes = useSelector((state) => state?.reservations.allReservations)
-    const userId = useSelector((state) => state.session.user.id)
+    const allRes = useSelector((state) => state.reservations.allReservations)
+    const userId = useSelector((state) => state.session.user?.id)
 
 
     function handleClick (date) {
@@ -44,7 +44,7 @@ export default function Booking () {
             />
             {allRes.map((reservation) => {
                 return (
-                    <div>{reservation.date} number of seats: {reservation?.Table.numofseats}</div>
+                    <div>{reservation.date} number of seats: {reservation.Table.numofseats}</div>
                 )
             })}
             <button onClick={handleAddReservation} >Add Reservation</button>

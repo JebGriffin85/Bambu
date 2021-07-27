@@ -26,10 +26,6 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       },
     },
-    hasReservation: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
