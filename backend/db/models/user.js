@@ -57,8 +57,8 @@ module.exports = (sequelize, DataTypes) => {
     User.hasOne(models.Reservation, { foreignKey: 'userId', onDelete: 'CASCADE'})
   };
   User.prototype.toSafeObject = function () {
-  const { id, username, email } = this;
-  return { id, username, email };
+  const { id, username, email, hasReservation } = this;
+  return { id, username, email, hasReservation };
 };
 
 User.prototype.validatePassword = function (password) {
