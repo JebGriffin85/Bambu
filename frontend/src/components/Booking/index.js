@@ -7,8 +7,8 @@ import { thunk_getAllRes, thunk_addRes } from '../../store/reservation';
 
 export default function Booking () {
     const dispatch = useDispatch();
-    let minDate = moment(new Date()).add(1, 'day')._d
-    let maxDate = moment(new Date()).add(3, 'month')._d
+    const minDate = moment(new Date()).add(1, 'day')._d
+    const maxDate = moment(new Date()).add(3, 'month')._d
     const [date, setDate] = useState(new Date());
     const [time, setTime] = useState(7);
     const [tableId, setTableId] = useState(5);
@@ -30,7 +30,6 @@ export default function Booking () {
         };
        await dispatch(thunk_addRes(reservation));
        await dispatch(thunk_getAllRes(newDate))
-        console.log(reservation) ;
     };
 
     return (
