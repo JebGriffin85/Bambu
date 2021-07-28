@@ -17,15 +17,14 @@ router.get('/:date', asyncHandler (async (req, res) => {
 })
 );
 
-router.get('/:id', asyncHandler(async (req, res) => {
-    const id = parseInt(req.params.id);
+router.get('/getres/:id', asyncHandler(async (req, res) => {
+    const userId = parseInt(req.params.id);
     const reservation = await Reservation.findOne({
-        where: {userId: id},
-        include: Reservation
-    })
+        where: {userId},
+        include: Table
+    });
     return res.json(reservation);
-
-}))
+}));
 
 router.post('/',
     asyncHandler(async (req, res, next) => {
@@ -35,12 +34,12 @@ router.post('/',
             time,
             userId,
             tableId
-        })
+        });
         return res.json(
             addReservation
-        )
+        );
     })
-)
+);
 
 
 module.exports = router;

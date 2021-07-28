@@ -33,6 +33,9 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60]
       },
     },
+    hasReservation: {
+      type: DataTypes.BOOLEAN
+    }
   },
     {
       defaultScope: {

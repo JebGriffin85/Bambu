@@ -19,6 +19,20 @@ const validateLogin = [
   handleValidationErrors,
 ];
 
+//flip reservation BOOLEAN
+router.patch('/', 
+asyncHandler(async (req, res, next) => {
+  const { id } = req.body;
+  const user = await User.findByPk(id)
+  if (user.hasReservation === false) {
+    user.hasReservation = true
+  } else {
+    user.hasReservation = false
+  }
+  await user.save()
+return res.json(user.toSafeObject())
+})
+)
 
 
 // Log in
