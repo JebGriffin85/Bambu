@@ -42,4 +42,15 @@ router.post('/',
 );
 
 
+router.delete('/', 
+    asyncHandler (async (req, res, next) => {
+        const id = req.body.id
+        console.log('---------',id)
+        const reservation = await Reservation.findByPk(id)
+        await reservation.destroy()
+        return res.json({msg: 'success'})
+    })
+)
+
+
 module.exports = router;

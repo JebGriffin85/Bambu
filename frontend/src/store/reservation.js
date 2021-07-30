@@ -2,7 +2,25 @@ import { csrfFetch } from './csrf';
 
 const GET_ALL_RES = 'reservations/getAllRes';
 const ADD_RES = 'reservations/addRes';
-const GET_MY_RES ='reservations/getMyRes';
+const GET_MY_RES = 'reservations/getMyRes';
+const DEL_MY_RES = 'reservations/delMyRes';
+
+const delMyRes = () => ({
+    type: DEL_MY_RES,
+    payload: null
+});
+
+export const thunk_delMyRes = (id) => async (dispatch) => {
+    const res = await csrfFetch('/api/reservations', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id})
+    });
+    dispatch(delMyRes());
+    return res;
+};
 
 const getMyRes = (reservation) => ({
     type: GET_MY_RES,
@@ -60,6 +78,10 @@ export const myReservationReducer = (state = myResInitState, action) => {
         case GET_MY_RES:
             newState = Object.assign({}, state);
             newState.myReservation = action.payload;
+            return newState;
+        case DEL_MY_RES:
+            newState = Object.assign({}, state);
+            newState.myReservation = [];
             return newState;
         default: 
         return state;
