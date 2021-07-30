@@ -95,6 +95,16 @@ export default function Booking () {
                 <option value='8'> 8:00 pm </option>
             </select>
             </div>
+
+
+
+<div className='grid grid-cols-2'>
+    
+</div>
+
+
+
+            
         </div>
     )
 }

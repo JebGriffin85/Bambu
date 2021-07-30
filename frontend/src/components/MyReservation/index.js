@@ -12,14 +12,14 @@ export default function MyReservation () {
     
 
     function handleDelete (id) {
-        console.log(id)
-        dispatch(thunk_delMyRes(id))
-        dispatch(thunk_flipReservation(userId))
-        history.push('/')
-    }
+        dispatch(thunk_delMyRes(id));
+        dispatch(thunk_flipReservation(userId));
+        history.push('/');
+    };
+
     useEffect(() => {
-        dispatch(thunk_getMyRes(userId))
-    })
+        dispatch(thunk_getMyRes(userId));
+    });
 
 
 
