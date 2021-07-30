@@ -2,6 +2,18 @@ import { csrfFetch } from './csrf';
 
 const GET_ALL_RES = 'reservations/getAllRes';
 const ADD_RES = 'reservations/addRes';
+const GET_MY_RES ='reservations/getMyRes';
+
+const getMyRes = (reservation) => ({
+    type: GET_MY_RES,
+    payload: reservation
+});
+
+export const thunk_getMyRes = (id) => async (dispatch) => {
+    const res = await fetch(`/api/reservations/getres/${id}`);
+    const data = await res.json();
+    dispatch(getMyRes(data))
+}
 
 const addRes = (reservation) => ({
     type: ADD_RES,
@@ -41,7 +53,18 @@ export const thunk_getAllRes = (date) => async (dispatch) => {
     return
 }
 
-
+const myResInitState = { myReservation: [] }
+export const myReservationReducer = (state = myResInitState, action) => {
+    let newState;
+    switch (action.type) {
+        case GET_MY_RES:
+            newState = Object.assign({}, state);
+            newState.myReservation = action.payload;
+            return newState;
+        default: 
+        return state;
+    }
+}
 
 const initialState = { allReservations: [] }
 const reservationsReducer = (state = initialState, action) => {
