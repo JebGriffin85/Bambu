@@ -7,6 +7,10 @@ import moment, { min } from 'moment';
 import { thunk_getAllRes, thunk_addRes } from '../../store/reservation';
 import { thunk_flipReservation } from '../../store/session';
 import { getAvailableTables } from './util';
+import dining1 from './alinea1.jpeg';
+import dining2 from './alinea2.jpeg';
+import dining3 from './alinea3.jpeg';
+import Select from 'react-select';
 
 export default function Booking () {
     const history = useHistory();
@@ -14,34 +18,43 @@ export default function Booking () {
     const minDate = moment(new Date()).add(1, 'day')._d;
     const maxDate = moment(new Date()).add(3, 'month')._d;
     const [date, setDate] = useState(moment(new Date()).add(1, 'day')._d);
-    const [time, setTime] = useState(6);
+    const [time, setTime] = useState(null);
     const [tableId, setTableId] = useState(null);
     const [btnDisable, setBtnDisable] = useState(false)
     const allRes = useSelector((state) => state.reservations.allReservations);
     const userId = useSelector((state) => state.session.user?.id);
     const user = useSelector((state) => state.session.user);
     let availableTables = getAvailableTables(allRes);
+
+
+    const timeOptions = [
+  { value: 6, label: '6:00 pm' },
+  { value: '7', label: '7:00 pm' },
+  { value: '8', label: '8:00 pm' },
+];
+
     
     const updateTableId = (e) => {
-        setTableId(e.target.value);
+        setTableId(e.value)
     };
 
     const updateTime = (e) => {
-        setTime(e.target.value);
-        console.log(parseInt(e.target.value))
+        setTime(e.value);
     };
-
-    console.log(tableId)
     
     let valueMap = {
         1: 'Table for One',
         2: 'Table for Two',
         3: 'Table for Two',
         4: 'Table for Four',
-        5: 'Table for four',
+        5: 'Table for Four',
         6: 'Table for Six',
         7: 'Table for Six'
     }
+    const tableOptions = [];
+    availableTables.map((table) => {
+      return  tableOptions.push({value: table, label: valueMap[table]})
+    })
     
     useEffect(() => {
         dispatch(thunk_getAllRes(moment(minDate).startOf('day')._d))
@@ -70,38 +83,51 @@ export default function Booking () {
 
     return (
         <div>
-            <Calendar
+<div class="m-auto max-w-6xl p-12">
+   <div class="flex flex-col md:flex-row">
+      <div class="md:w-1/2 max-w-md flex flex-col justify-center">
+         <div class="md:text-5xl text-2xl uppercase font-black pb-8">Welcome to bambù</div>
+         <div className='pb-4'>
+             <Calendar
                 onChange={setDate}
                 value={date}
                 minDate={minDate}
                 maxDate={maxDate}
                 onClickDay={handleClick}
             />
-
-            <button disabled={btnDisable} onClick={handleAddReservation} >Add Reservation</button>
-            <p>tables available: </p>
-            <select onChange={updateTableId}>
-                {availableTables.map((table => 
-                
-                <option value={table}>{valueMap[table]}</option>
-                ))}
-            </select>
-            <p>times available: </p>
-            <div class="relative inline-flex">
-            <svg class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero" /></svg>
-            <select className='border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none' onChange={updateTime} >
-                <option value='6'> 6:00 pm </option>
-                <option value='7'> 7:00 pm </option>
-                <option value='8'> 8:00 pm </option>
-            </select>
             </div>
-
-
-
-<div className='grid grid-cols-2'>
-    
+            <div className='pb-4'>
+              <Select className='w-72'
+                placeholder='Select a Table...'
+                value={tableId?.value}
+                onChange={updateTableId}
+                options={tableOptions}
+            />
+                    </div>
+            <Select className='w-72'
+                placeholder='Select a Time...'
+                value={time?.value}
+                onChange={updateTime}
+                options={timeOptions}
+            />
+            {time && tableId && 
+            
+         <div class="my-5 h-16">
+            <div class="shadow-md font-medium py-2 px-4 text-yellow-100
+               cursor-pointer bg-yellow-600 hover:bg-yellow-500 rounded text-lg text-center w-48"  onClick={handleAddReservation}>Book A Table</div>
+         </div>
+            }
+      </div>
+      <div class="flex md:justify-end w-full md:w-1/2 -mt-5">
+         <div class="bg-dots">
+            <div class="shadow-2xl max-w-md z-10 rounded-full mt-6 ml-4">
+               <img alt="card img" class="rounded-t" src={dining2}/> 
+               <div class="text-2xl p-10 bg-white">Bambù has been universally praised for its innovative approach to modernist cuisine. It has been named the Best Restaurant in the World by Elite Traveler, the Best Restaurant in North America by The World’s 50 Best Restaurants, and the Best Restaurant in the U.S. by Gourmet and Business Insider. It is one of only 14 restaurants in the U.S. to earn the coveted Michelin 3-Star rating.</div>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
-
 
 
             

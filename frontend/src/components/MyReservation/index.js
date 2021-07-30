@@ -8,19 +8,19 @@ export default function MyReservation () {
     const history = useHistory();
     const dispatch = useDispatch();
     const userId = useSelector((state) => state.session.user.id)
-    const resId = useSelector((state) => state.myReservation.myReservation.id)
     
-
+    
     function handleDelete (id) {
         dispatch(thunk_delMyRes(id));
         dispatch(thunk_flipReservation(userId));
         history.push('/');
     };
-
+    
     useEffect(() => {
         dispatch(thunk_getMyRes(userId));
     });
-
+    
+    const resId = useSelector((state) => state?.myReservation?.myReservation?.id)
 
 
 return (
