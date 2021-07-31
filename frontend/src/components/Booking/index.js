@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import moment, { min } from 'moment';
@@ -26,6 +26,7 @@ export default function Booking () {
     const user = useSelector((state) => state.session.user);
     let availableTables = getAvailableTables(allRes);
 
+   
 
     const timeOptions = [
   { value: 6, label: '6:00 pm' },
@@ -76,9 +77,11 @@ export default function Booking () {
         };
        dispatch(thunk_flipReservation(userId));
        dispatch(thunk_addRes(reservation));
-       dispatch(thunk_getAllRes(newDate));
+    //    dispatch(thunk_getAllRes(newDate));
        setBtnDisable(true)
-       history.push('/my-reservation')
+       setTimeout(() => {
+           history.push('/my-reservation')
+       }, 100)
     };
 
     return (
@@ -86,9 +89,10 @@ export default function Booking () {
 <div class="m-auto max-w-6xl p-12">
    <div class="flex flex-col md:flex-row">
       <div class="md:w-1/2 max-w-md flex flex-col justify-center">
-         <div class="md:text-5xl text-2xl uppercase font-black pb-8">Welcome to bambù</div>
-         <div className='pb-4'>
-             <Calendar
+         <div class="md:text-5xl text-2xl uppercase font-black pb-4">Welcome to bambù</div>
+         <div className='text-sm text-center pb-4'>We allow one booking per customer up to three months in advanced.</div>
+         <div className='pb-4 '>
+             <Calendar className='shadow-2xl '
                 onChange={setDate}
                 value={date}
                 minDate={minDate}
@@ -96,33 +100,35 @@ export default function Booking () {
                 onClickDay={handleClick}
             />
             </div>
-            <div className='pb-4'>
-              <Select className='w-72'
+            <div className='pb-4 '>
+              <Select className='w-72 shadow-2xl '
                 placeholder='Select a Table...'
                 value={tableId?.value}
                 onChange={updateTableId}
                 options={tableOptions}
             />
                     </div>
-            <Select className='w-72'
+            <Select className='w-72 shadow-2xl'
                 placeholder='Select a Time...'
                 value={time?.value}
                 onChange={updateTime}
                 options={timeOptions}
             />
-            {time && tableId && 
-            
+            {time && tableId && !user.hasReservation &&
          <div class="my-5 h-16">
             <div class="shadow-md font-medium py-2 px-4 text-yellow-100
                cursor-pointer bg-yellow-600 hover:bg-yellow-500 rounded text-lg text-center w-48"  onClick={handleAddReservation}>Book A Table</div>
          </div>
+            }
+            {user.hasReservation && 
+                <div className='text-sm text-center pt-4'>Please go to <NavLink className='text-base underline' to='/my-reservation'>My Reservation</NavLink> to cancel existing reservation.</div>
             }
       </div>
       <div class="flex md:justify-end w-full md:w-1/2 -mt-5">
          <div class="bg-dots">
             <div class="shadow-2xl max-w-md z-10 rounded-full mt-6 ml-4">
                <img alt="card img" class="rounded-t" src={dining2}/> 
-               <div class="text-2xl p-10 bg-white">Bambù has been universally praised for its innovative approach to modernist cuisine. It has been named the Best Restaurant in the World by Elite Traveler, the Best Restaurant in North America by The World’s 50 Best Restaurants, and the Best Restaurant in the U.S. by Gourmet and Business Insider. It is one of only 14 restaurants in the U.S. to earn the coveted Michelin 3-Star rating.</div>
+               <div class="text-xl p-10 bg-white">Bambù has been universally praised for its innovative approach to modernist cuisine. It has been named the Best Restaurant in the World by Elite Traveler, the Best Restaurant in North America by The World’s 50 Best Restaurants, and the Best Restaurant in the U.S. by Gourmet and Business Insider. It is one of only 14 restaurants in the U.S. to earn the coveted Michelin 3-Star rating.</div>
             </div>
          </div>
       </div>
