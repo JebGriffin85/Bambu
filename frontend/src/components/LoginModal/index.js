@@ -12,7 +12,7 @@ export default function LoginModal () {
 
   return (
       <div className='m-0 p-0'>
-          <button className="text-gray-300 hover:bg-gray-700 rounded-md text-sm font-medium" onClick={onOpenModal}>Login</button>
+          <div className="text-gray-300 hover:bg-gray-700 rounded-md cursor-pointer text-sm font-medium" onClick={onOpenModal}>Login</div>
           <Modal classNames={{
               overlay: 'customOverlay',
               modal: 'customModal',

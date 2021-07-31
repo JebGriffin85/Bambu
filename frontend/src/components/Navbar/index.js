@@ -18,7 +18,7 @@ function Navbar() {
         <div>
             <nav className="bg-gray-800 ">
                 <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 justify-between">
-                    <div className="flex items-center justify-between h-16">
+                    <div className="flex items-center justify-between h-12">
                         <div className="flex items-center">
                             <NavLink to='/' >
                                 <div className="flex-shrink-0">
@@ -52,10 +52,10 @@ function Navbar() {
                                         Book A Table
                                     </NavLink>
                                     
-                                    {sessionUser ? <p onClick={handleLogout} className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</p> : <p
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    {sessionUser ? <div onClick={handleLogout} className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</div> : <div
+                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
                                     > <LoginModal />
-                                    </p>}
+                                    </div>}
                                     {sessionUser?.hasReservation && 
                                     <NavLink to='my-reservation'
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
@@ -124,40 +124,52 @@ function Navbar() {
                     {(ref) => (
                         <div className="md:hidden" id="mobile-menu">
                             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                                <a
-                                    href="#"
+                                <NavLink
+                                    to='/gallery'
                                     className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
-                                    Dashboard
-                                </a>
+                                    Gallery
+                                </NavLink>
 
-                                <a
-                                    href="#"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                <NavLink
+                                    to='/faq'
+                                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
-                                    Team
-                                </a>
+                                    FAQ
+                                </NavLink>
 
-                                <a
-                                    href="#"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                <NavLink
+                                    to='/about'
+                                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
-                                    Projects
-                                </a>
+                                    About
+                                </NavLink>
 
-                                <a
-                                    href="#"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                 <NavLink
+                                    to='/booking'
+                                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
-                                    Calendar
-                                </a>
+                                    Book a Table
+                                </NavLink>
 
-                                <a
-                                    href="#"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                <NavLink
+                                    to='/about'
+                                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
-                                    Reports
-                                </a>
+                                    About
+                                </NavLink>
+
+                                {sessionUser ? <div onClick={handleLogout} className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Logout</div> : <div
+                                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                > <LoginModal />
+                                </div>}
+                                {sessionUser?.hasReservation &&
+                                    <NavLink to='my-reservation'
+                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                        My Reservation
+                                    </NavLink>
+                                }
+
                             </div>
                         </div>
                     )}

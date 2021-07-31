@@ -11,6 +11,7 @@ import dining1 from './alinea1.jpeg';
 import dining2 from './alinea2.jpeg';
 import dining3 from './alinea3.jpeg';
 import Select from 'react-select';
+import './booking.css';
 
 export default function Booking () {
     const history = useHistory();
