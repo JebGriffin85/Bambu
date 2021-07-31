@@ -114,13 +114,16 @@ export default function Booking () {
                 onChange={updateTime}
                 options={timeOptions}
             />
-            {time && tableId && !user.hasReservation &&
+            {time && tableId && !user && 
+                <div className='pt-4 '>Please Login to Make Reservation </div>
+            }
+            {time && tableId && !user?.hasReservation && user &&
          <div class="my-5 h-16">
             <div class="shadow-md font-medium py-2 px-4 text-yellow-100
                cursor-pointer bg-yellow-600 hover:bg-yellow-500 rounded text-lg text-center w-48"  onClick={handleAddReservation}>Book A Table</div>
          </div>
             }
-            {user.hasReservation && 
+            {user?.hasReservation && 
                 <div className='text-sm text-center pt-4'>Please go to <NavLink className='text-base underline' to='/my-reservation'>My Reservation</NavLink> to cancel existing reservation.</div>
             }
       </div>
