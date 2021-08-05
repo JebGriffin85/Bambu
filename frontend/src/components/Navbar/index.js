@@ -10,6 +10,7 @@ function Navbar() {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
+    
     function handleLogout() {
         dispatch(sessionActions.logout())
     }
