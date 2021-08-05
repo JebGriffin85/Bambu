@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Booking from './components/Booking';
 import MyReservation from './components/MyReservation';
+import Gallery from './components/gallery';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ function App() {
         </Route>
          <Route path="/my-reservation" exact={true}>
           <MyReservation />
+        </Route>
+        <Route path="/gallery" exact={true}>
+          <Gallery />
         </Route>
     </Switch>
     </>
