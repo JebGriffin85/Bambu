@@ -46,12 +46,12 @@ export default function Booking () {
     
     let valueMap = {
         1: 'Table for One',
-        2: 'Table for Two',
-        3: 'Table for Two',
+        2: 'Table for Two ',
+        3: 'Table for Two (Chef\'s table)',
         4: 'Table for Four',
-        5: 'Table for Four',
+        5: 'Table for Four (Chef\'s table)',
         6: 'Table for Six',
-        7: 'Table for Six'
+        7: 'Table for Six (Chef\'s table)'
     }
     const tableOptions = [];
     availableTables.map((table) => {

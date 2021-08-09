@@ -5,6 +5,8 @@ import { Transition } from "@headlessui/react";
 import logo from './logo.png'
 import LoginModal from '../LoginModal';
 import * as sessionActions from '../../store/session';
+import FAQModal from "../FAQ";
+
 
 function Navbar() {
     const dispatch = useDispatch();
@@ -37,11 +39,13 @@ function Navbar() {
                                         className=" hover:bg-gray-700 text-gray-300 px-3 py-2 rounded-md text-sm font-medium">
                                         Gallery
                                     </NavLink>
-
+{/* 
                                     <NavLink to='FAQ'
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                         FAQ
-                                    </NavLink>
+                                    </NavLink> */}
+
+                                    <FAQModal />
 
                                     <NavLink to='about'
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
@@ -153,20 +157,14 @@ function Navbar() {
                                     Book a Table
                                 </NavLink>
 
-                                <NavLink
-                                    to='/about'
-                                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                    About
-                                </NavLink>
 
-                                {sessionUser ? <div onClick={handleLogout} className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Logout</div> : <div
+                                {sessionUser ? <div onClick={handleLogout} className="cursor-pointer text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Logout</div> : <div
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                 > <LoginModal />
                                 </div>}
                                 {sessionUser?.hasReservation &&
                                     <NavLink to='my-reservation'
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
                                         My Reservation
                                     </NavLink>
                                 }
