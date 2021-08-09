@@ -11,7 +11,7 @@ export default function LoginModal () {
   const onCloseModal = () => setOpen(false);
 
   return (
-      <div className='m-0 p-0'>
+      <div className='m-0 p-0 '>
           <div className="text-gray-300 hover:bg-gray-700 rounded-md cursor-pointer text-sm font-medium" onClick={onOpenModal}>Login</div>
           <Modal classNames={{
               overlay: 'customOverlay',
