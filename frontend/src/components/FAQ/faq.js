@@ -18,7 +18,7 @@ export default function FAQ () {
           <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
             <div class="w-full lg:w-1/2 px-4 py-2">
               <details class="mb-4">
-                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4 cursor-pointer">
                     Are guests required to wear masks at Bambù?
                 </summary>
 
@@ -28,7 +28,7 @@ export default function FAQ () {
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-semibold bg-gray-200 rounded-md py-2 px-4">
+                  <summary class="font-semibold bg-gray-200 rounded-md py-2 px-4 cursor-pointer">
                     Are you able to accommodate dietary restrictions?
                 </summary>
 
@@ -37,7 +37,7 @@ export default function FAQ () {
                 </span>
               </details>
               <details class="">
-                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                  <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4 cursor-pointer">
                     What happens if I am running late?
                 </summary>
 
@@ -48,7 +48,7 @@ export default function FAQ () {
             </div>
             <div class="w-full lg:w-1/2 px-4 py-2">
               <details class="mb-4">
-                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                  <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4 cursor-pointer">
                     Can I reschedule my booking?
                 </summary>
 
@@ -57,7 +57,7 @@ export default function FAQ () {
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                  <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4 cursor-pointer">
                     What is the dress code at Bambù?
                 </summary>
 
@@ -66,7 +66,7 @@ export default function FAQ () {
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                  <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4 cursor-pointer">
                     What is your corkage policy?
                 </summary>
 

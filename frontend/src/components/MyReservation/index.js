@@ -39,7 +39,7 @@ return (
     <div class="w-full bg-center bg-cover h-3/6" style={{backgroundImage: `url(${food})`}}>
         <div class="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50">
             <div class="text-center">
-                <h1 class="text-2xl font-semibold text-white lg:text-3xl">Your reservation is confirmed for <span class="text-blue-300 ">{date} at {`${time}:00 PM`}</span></h1>
+                <h1 class="text-2xl font-semibold text-white lg:text-3xl">Your reservation is confirmed for <span class="text-blue-200 ">{date} at {`${time}:00 PM`}</span></h1>
             </div>
         </div>
     </div>
