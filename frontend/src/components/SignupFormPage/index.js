@@ -87,7 +87,7 @@ function SignupFormPage() {
                 <h3 class="p-1 text-gray-700">Creating an account will allow you to make reservations online</h3>
             </div>
             <form onSubmit={handleSubmit} class="p-0">
-          <ul>
+          <ul className='text-red-400 font-bold text-sm pl-2'>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
                 <div class="mt-5">
@@ -126,7 +126,7 @@ function SignupFormPage() {
           </div>
 
                 <div class="mt-10">
-                    <input type="submit" value="Sign up" class="cursor-pointer py-3 bg-green-500 text-white w-full rounded hover:bg-green-600"/>
+            <input type="submit" value="Sign up" class="cursor-pointer py-3 bg-yellow-600 hover:bg-yellow-500 text-white w-full font-bold rounded "/>
                 </div>
             </form>
            
