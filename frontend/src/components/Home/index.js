@@ -7,7 +7,8 @@ export default function Home () {
     const history = useHistory();
 
     return (
-        <div className=' w-full  h-screen '>
+        <div className=' w-full  h-screen overflow-hidden'>
+            <Navbar />
             <div className='absolute inset-x-0 top-2/4 text-gray-200 text-7xl pl-8'>Bambù
             <div className='pb-6'></div>
                 <div class="shadow-md font-medium py-2 px-4 text-yellow-100

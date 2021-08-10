@@ -15,11 +15,10 @@ function Navbar() {
     function handleLogout() {
         dispatch(sessionActions.logout())
     }
-    let bool = false
 
 
     return (
-        <div>
+        <div className=''>
             <nav className="bg-gray-800 ">
                 <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 justify-between">
                     <div className="flex items-center justify-between h-12">
@@ -45,7 +44,7 @@ function Navbar() {
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                         FAQ
                                     </NavLink> */}
-                                    <button onClick={() => <FAQModal bool={true}/>} className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
+                                    <button className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
 
                                     <FAQModal />
                                     </button>
