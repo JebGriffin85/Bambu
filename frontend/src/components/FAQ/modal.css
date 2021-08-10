@@ -5,4 +5,11 @@
 .customModal {
  margin: 0;
  padding: 0;
+
+}
+
+.faq-container{
+
+ height: 600px;
+ overflow-y: auto;
 }

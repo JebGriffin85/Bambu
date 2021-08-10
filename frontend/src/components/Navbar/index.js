@@ -39,15 +39,8 @@ function Navbar() {
                                         className=" hover:bg-gray-700 text-gray-300 px-3 py-2 rounded-md text-sm font-medium">
                                         Gallery
                                     </NavLink>
-                                    {/* 
-                                    <NavLink to='FAQ'
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                                        FAQ
-                                    </NavLink> */}
-                                    <button className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
 
                                     <FAQModal />
-                                    </button>
 
                                     <NavLink to='about'
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">

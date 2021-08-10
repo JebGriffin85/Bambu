@@ -4,16 +4,18 @@ import { Modal } from 'react-responsive-modal';
 import FAQ from './faq.js';
 import './modal.css'
 
-export default function FAQModal ({bool}) {
+export default function FAQModal () {
   const [open, setOpen] = useState(false);
-  if (bool) setOpen(bool)
+
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
 
   return (
-      <div className='m-0 p-0'>
-          <div className="text-gray-300 hover:bg-gray-700 rounded-md cursor-pointer text-sm font-medium" onClick={onOpenModal}>FAQ</div>
+      <div className='m-0 p-0 '>
+      <button className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium ' onClick={onOpenModal}>
+          <div className="text-gray-300 hover:bg-gray-700 rounded-md cursor-pointer text-sm font-medium w-full h-full" >FAQ</div>
+          </button>
           <Modal classNames={{
               overlay: 'customOverlay',
               modal: 'customModal',

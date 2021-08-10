@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './modal.css';
 
 
 export default function FAQ () {
@@ -8,7 +8,7 @@ export default function FAQ () {
     return (
      <div>
       <section class="text-gray-700">
-        <div class="container px-5 py-24 mx-auto">
+        <div class="faq-container px-5 py-24 mx-auto">
           <div class="text-center mb-20">
             <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
               Frequently Asked Questions
