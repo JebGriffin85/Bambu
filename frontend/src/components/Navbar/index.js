@@ -12,10 +12,11 @@ function Navbar() {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
-
     function handleLogout() {
         dispatch(sessionActions.logout())
     }
+    let bool = false
+
 
     return (
         <div>
@@ -39,13 +40,15 @@ function Navbar() {
                                         className=" hover:bg-gray-700 text-gray-300 px-3 py-2 rounded-md text-sm font-medium">
                                         Gallery
                                     </NavLink>
-{/* 
+                                    {/* 
                                     <NavLink to='FAQ'
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                         FAQ
                                     </NavLink> */}
+                                    <button onClick={() => <FAQModal bool={true}/>} className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
 
                                     <FAQModal />
+                                    </button>
 
                                     <NavLink to='about'
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
@@ -58,7 +61,7 @@ function Navbar() {
                                     </NavLink>
                                     
                                     {sessionUser ? <div onClick={handleLogout} className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</div> : <div
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+                                        className="text-gray-300 cursor-pointer hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
                                     > <LoginModal />
                                     </div>}
                                     {sessionUser?.hasReservation && 

@@ -4,8 +4,9 @@ import { Modal } from 'react-responsive-modal';
 import FAQ from './faq.js';
 import './modal.css'
 
-export default function FAQModal () {
+export default function FAQModal ({bool}) {
   const [open, setOpen] = useState(false);
+  if (bool) setOpen(bool)
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);

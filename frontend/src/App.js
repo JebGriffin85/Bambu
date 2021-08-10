@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Booking from './components/Booking';
 import MyReservation from './components/MyReservation';
 import Gallery from './components/gallery';
+import About from './components/About';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
         </Route>
         <Route path="/gallery" exact={true}>
           <Gallery />
+        </Route>
+        <Route path="/about" exact={true}>
+          <About />
         </Route>
     </Switch>
     </>
