@@ -10,6 +10,7 @@ import Booking from './components/Booking';
 import MyReservation from './components/MyReservation';
 import Gallery from './components/gallery';
 import About from './components/About';
+import Footer  from './components/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function App() {
     <Switch>
         <Route path="/" exact={true}>
           <Home/>
+          < Footer />
       </Route>
         <Route path="/signup" exact={true}>
           <Navbar />
