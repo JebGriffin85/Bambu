@@ -87,10 +87,10 @@ export default function Booking () {
 
     return (
         <div>
-<div class="m-auto max-w-6xl p-12">
-   <div class="flex flex-col md:flex-row">
-      <div class="md:w-1/2 max-w-md flex flex-col justify-center">
-         <div class="md:text-5xl text-2xl uppercase font-black pb-4">Welcome to bambù</div>
+<div className="m-auto max-w-6xl p-12">
+   <div className="flex flex-col md:flex-row">
+      <div className="md:w-1/2 max-w-md flex flex-col justify-center">
+         <div className="md:text-5xl text-2xl uppercase font-black pb-4">Welcome to bambù</div>
          <div className='text-sm text-center pb-4'>We allow one booking per customer up to three months in advanced.</div>
          <div className='pb-4 '>
              <Calendar className='shadow-2xl '
@@ -119,8 +119,8 @@ export default function Booking () {
                 <div className='pt-4 '>Please Login to Make Reservation </div>
             }
             {time && tableId && !user?.hasReservation && user &&
-         <div class="my-5 h-16">
-            <div class="shadow-md font-medium py-2 px-4 text-yellow-100
+         <div className="my-5 h-16">
+            <div className="shadow-md font-medium py-2 px-4 text-yellow-100
                cursor-pointer bg-yellow-600 hover:bg-yellow-500 rounded text-lg text-center w-48"  onClick={handleAddReservation}>Book A Table</div>
          </div>
             }
@@ -128,11 +128,11 @@ export default function Booking () {
                 <div className='text-sm text-center pt-4'>Please go to <NavLink className='text-base underline' to='/my-reservation'>My Reservation</NavLink> to cancel existing reservation.</div>
             }
       </div>
-      <div class="flex md:justify-end w-full md:w-1/2 -mt-5">
-         <div class="bg-dots">
-            <div class="shadow-2xl max-w-md z-10 rounded-full mt-6 ml-4">
-               <img alt="card img" class="rounded-t" src={dining2}/> 
-               <div class="text-xl p-10 bg-white">Bambù has been universally praised for its innovative approach to modernist cuisine. It has been named the Best Restaurant in the World by Elite Traveler, the Best Restaurant in North America by The World’s 50 Best Restaurants, and the Best Restaurant in the U.S. by Gourmet and Business Insider. It is one of only 14 restaurants in the U.S. to earn the coveted Michelin 3-Star rating.</div>
+      <div className="flex md:justify-end w-full md:w-1/2 -mt-5">
+         <div className="bg-dots">
+            <div className="shadow-2xl max-w-md z-10 rounded-full mt-6 ml-4">
+               <img alt="card img" className="rounded-t" src={dining2}/> 
+               <div className="text-xl p-10 bg-white">Bambù has been universally praised for its innovative approach to modernist cuisine. It has been named the Best Restaurant in the World by Elite Traveler, the Best Restaurant in North America by The World’s 50 Best Restaurants, and the Best Restaurant in the U.S. by Gourmet and Business Insider. It is one of only 14 restaurants in the U.S. to earn the coveted Michelin 3-Star rating.</div>
             </div>
          </div>
       </div>

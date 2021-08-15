@@ -75,22 +75,22 @@ function SignupFormPage() {
 
 
 
-    <div class="flex min-h-screen bg-white">
+    <div className="flex min-h-screen bg-white">
 
-        <div class="w-1/2 bg-cover md:block hidden" style={{backgroundImage:  `url(${signup})`}}></div>
+        <div className="w-1/2 bg-cover md:block hidden" style={{backgroundImage:  `url(${signup})`}}></div>
 
-        <div class="md:w-1/2 max-w-lg mx-auto my-24 px-4 py-5 shadow-none">
+        <div className="md:w-1/2 max-w-lg mx-auto my-24 px-4 py-5 shadow-none">
 
-            <div class="text-left p-0 font-sans">
+            <div className="text-left p-0 font-sans">
                 
-                <h1 class=" text-gray-800 text-3xl font-medium">Create an account for free</h1>
-                <h3 class="p-1 text-gray-700">Creating an account will allow you to make reservations online</h3>
+                <h1 className=" text-gray-800 text-3xl font-medium">Create an account for free</h1>
+                <h3 className="p-1 text-gray-700">Creating an account will allow you to make reservations online</h3>
             </div>
-            <form onSubmit={handleSubmit} class="p-0">
+            <form onSubmit={handleSubmit} className="p-0">
           <ul className='text-red-400 font-bold text-sm pl-2'>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
-                <div class="mt-5">
+                <div className="mt-5">
 
                  
                     <input
@@ -98,35 +98,35 @@ function SignupFormPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-                  class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent " placeholder="Email"/>
+                  className="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent " placeholder="Email"/>
                 </div>
-                <div class="mt-5">
+                <div className="mt-5">
                     <input 
               type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                    class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent " placeholder="Username"/>
+                    className="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent " placeholder="Username"/>
                 </div>
-                <div class="mt-5">
+                <div className="mt-5">
                     <input 
                      type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                    class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent  " placeholder="Password"/>
+                    className="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent  " placeholder="Password"/>
                 </div>
-          <div class="mt-5">
+          <div className="mt-5">
             <input
               type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
-              class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent  " placeholder="Confirm Password" />
+              className="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent  " placeholder="Confirm Password" />
           </div>
 
-                <div class="mt-10">
-            <input type="submit" value="Sign up" class="cursor-pointer py-3 bg-yellow-600 hover:bg-yellow-500 text-white w-full font-bold rounded "/>
+                <div className="mt-10">
+            <input type="submit" value="Sign up" className="cursor-pointer py-3 bg-yellow-600 hover:bg-yellow-500 text-white w-full font-bold rounded "/>
                 </div>
             </form>
            
