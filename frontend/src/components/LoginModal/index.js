@@ -9,11 +9,11 @@ export default function LoginModal () {
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
-
+// hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium
   return (
       <div className='m-0 p-0 '>
-      <button className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium ' onClick={onOpenModal}>
-          <div className="text-gray-300 hover:bg-gray-700 rounded-md cursor-pointer text-sm font-medium" >Login</div>
+      <button className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium block' onClick={onOpenModal}>
+          <div  >Login</div>
       </button>
           <Modal classNames={{
               overlay: 'customOverlay',

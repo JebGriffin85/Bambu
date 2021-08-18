@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { thunk_delMyRes, thunk_getMyRes } from '../../store/reservation'
@@ -10,10 +10,9 @@ import food1 from './alineafood.jpeg'
 export default function MyReservation () {
     const history = useHistory();
     const dispatch = useDispatch();
-    const userId = useSelector((state) => state.session.user.id)
-    const reservation = useSelector((state) => state.myReservation.myReservation)
-    const [loaded, setLoaded] = useState(false)
-    const date = moment(reservation.date).format('MMMM Do YYYY')
+    const userId = useSelector((state) => state.session.user.id);
+    const reservation = useSelector((state) => state.myReservation.myReservation);
+    const date = moment(reservation.date).format('MMMM Do YYYY');
 
     function handleDelete (id) {
         dispatch(thunk_delMyRes(id));
@@ -26,14 +25,12 @@ export default function MyReservation () {
     },[dispatch]);
     
  
-    const resId = useSelector((state) => state.myReservation.myReservation?.id)
-    const time = useSelector((state) => state.myReservation.myReservation?.time)
+    const resId = useSelector((state) => state.myReservation.myReservation?.id);
+    const time = useSelector((state) => state.myReservation.myReservation?.time);
 
 
 return (
     <>
-    
-    {/* <button onClick={() => handleDelete(resId)}>delete my reservation</button> */}
 
     <div className='h-screen'>
     <div className="w-full bg-center bg-cover h-3/6" style={{backgroundImage: `url(${food})`}}>
