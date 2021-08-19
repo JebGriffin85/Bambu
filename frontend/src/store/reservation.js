@@ -54,6 +54,7 @@ export const thunk_addRes = (reservation) => async (dispatch) => {
         });
         const data = await res.json();
         dispatch(addRes(data));
+        console.log(data)
         return res;
 }
 
