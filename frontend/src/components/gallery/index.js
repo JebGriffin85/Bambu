@@ -16,11 +16,6 @@ import a12 from './a12.jpeg';
 
 export default function Gallery () {
 
-
-
-
-
-
     return (
 <>
 <section className="overflow-hidden text-gray-700 ">
