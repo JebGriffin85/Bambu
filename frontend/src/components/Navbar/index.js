@@ -7,7 +7,7 @@ import LoginModal from '../LoginModal';
 import * as sessionActions from '../../store/session';
 import FAQModal from "../FAQ";
 import FAQMobile from '../FAQ/mobileFAQ.js';
-
+import LoginMobile from "../LoginModal/loginMobile.js";
 
 function Navbar() {
     const dispatch = useDispatch();
@@ -155,7 +155,7 @@ function Navbar() {
 
                                 {sessionUser ? <div onClick={handleLogout} className="cursor-pointer text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Logout</div> : <div
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
-                                > <LoginModal />
+                                > <LoginMobile />
                                 </div>}
                                 {sessionUser?.hasReservation &&
                                     <NavLink to='my-reservation'
