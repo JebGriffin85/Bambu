@@ -8,6 +8,7 @@ import * as sessionActions from '../../store/session';
 import FAQModal from "../FAQ";
 import FAQMobile from '../FAQ/mobileFAQ.js';
 import LoginMobile from "../LoginModal/loginMobile.js";
+import menu from './menu.pdf'
 
 function Navbar() {
     const dispatch = useDispatch();
@@ -36,6 +37,11 @@ function Navbar() {
                             </NavLink>
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-4">
+
+                                    <a href={menu} without rel='noopener noreferrer' target='_blank'>
+                                        <button>PDF</button>
+                                    </a>
+
                                     <NavLink to='/gallery'
                                         className=" hover:bg-gray-700 text-gray-300 px-3 py-2 rounded-md text-sm font-medium">
                                         Gallery
