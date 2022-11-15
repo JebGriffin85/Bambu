@@ -62,16 +62,32 @@ router.get('/getres/:id', asyncHandler(async (req, res) => {
 router.post('/', validateReservation, 
     asyncHandler(async (req, res, next) => {
         const { date, time, userId, tableId } = req.body
-        const addReservation = await Reservation.create({
-            date,
-            time,
-            userId,
-            tableId
-        });
-        return res.json(
-            addReservation
-        );
+        const hasTableBeenBooked = await Reservation.findOne({
+            where: {
+                tableId, date, time
+            }
+        })
+        console.log('========================', hasTableBeenBooked)
+
+        if (!hasTableBeenBooked) {
+
+            const addReservation = await Reservation.create({
+                date,
+                time,
+                userId,
+                tableId
+            });
+            return res.json(
+                addReservation
+            );
+        }
+        const err = new Error('Reservation already exist');
+        err.status = 401;
+        err.title = 'Booking Failed';
+        err.errors = ['Reservation already exist, please refresh your page and select an available time.'];
+        return next(err);
     })
+
 );
 
 

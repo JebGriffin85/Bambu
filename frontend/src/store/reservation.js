@@ -43,19 +43,20 @@ export const thunk_addRes = (reservation) => async (dispatch) => {
         time,
         userId,
         tableId } = reservation;
-        const res = await csrfFetch('/api/reservations', {
-            method: 'POST',
-            body: JSON.stringify({
-                date, 
-                time,
-                userId,
-                tableId
-            })
-        });
-        const data = await res.json();
-        dispatch(addRes(data));
-        console.log(data)
-        return res;
+            const res = await csrfFetch('/api/reservations', {
+                method: 'POST',
+                body: JSON.stringify({
+                    date, 
+                    time,
+                    userId,
+                    tableId
+                })
+            });
+            
+            const data = await res.json();
+            dispatch(addRes(data));
+            return res;
+
 }
 
 const getAllRes = (reservations) => ({

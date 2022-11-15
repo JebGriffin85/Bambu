@@ -19,6 +19,7 @@ export default function Booking () {
     const [date, setDate] = useState(moment(new Date()).add(1, 'day')._d); 
     const [time, setTime] = useState(null);
     const [tableId, setTableId] = useState(null);
+    const [errors, setErrors] = useState([]);
     const allRes = useSelector((state) => state.reservations.allReservations); //array of reservation objects
     const userId = useSelector((state) => state.session.user?.id);
     const user = useSelector((state) => state.session.user);
@@ -75,12 +76,32 @@ export default function Booking () {
             userId,
             tableId
         };
-       dispatch(thunk_flipReservation(userId));
-       dispatch(thunk_addRes(reservation));
-       //put a timeout here because it was redirecting before the add reservation could finish
-       setTimeout(() => {
-           history.push('/my-reservation')
-       }, 100)
+        setErrors([]);
+        let data = await dispatch(thunk_addRes(reservation)) 
+        .then((data) => {
+            if (data.ok) {
+    
+                dispatch(thunk_flipReservation(userId))
+            
+                //put a timeout here because it was redirecting before the add reservation could finish
+                setTimeout(() => {
+            
+                    history.push('/my-reservation')
+                }, 100)
+            }
+        })
+       .catch(async (res) => {
+        let errorData = await res.json();
+        console.log(errorData, '-----------------------------data')
+        if (errorData && errorData.errors) {
+            setErrors(errorData.errors)
+            console.log('--------errors here', errorData.errors, errorData)
+        }  
+    })
+
+
+
+      
     };
 
     return (
@@ -120,7 +141,11 @@ export default function Booking () {
          <div className='my-5 h-16'>
             <div className='shadow-md font-medium py-2 px-4 text-yellow-100
                cursor-pointer bg-yellow-600 hover:bg-yellow-500 rounded text-lg text-center w-48'  onClick={handleAddReservation}>Book A Table</div>
+                                     <ul className='text-red-400 font-bold text-sm pl-2'>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
          </div>
+         
             }
             {user?.hasReservation && 
                 <div className='text-sm text-center pt-4'>Please go to <NavLink className='text-base underline' to='/my-reservation'>My Reservation</NavLink> to cancel existing reservation.</div>
