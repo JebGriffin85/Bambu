@@ -6,6 +6,7 @@ import logo from './logo.png'
 import LoginModal from '../LoginModal';
 import * as sessionActions from '../../store/session';
 import FAQModal from "../FAQ";
+import FAQMobile from '../FAQ/mobileFAQ.js';
 
 
 function Navbar() {
@@ -134,7 +135,7 @@ function Navbar() {
                                    
                                     className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
-                                    <FAQModal />
+                                    <FAQMobile />
                                 </div>
 
                                 <NavLink
