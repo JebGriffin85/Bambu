@@ -51,7 +51,7 @@ function LoginFormPage({setOpen}) {
                     <label className="block text-gray-700 text-sm font-bold mb-2">
                         Password
                     </label>
-                    <input className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
+                    <input className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:shadow-outline"
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -59,15 +59,15 @@ function LoginFormPage({setOpen}) {
                     />
                 </div>
                 <div className="flex flex-col items-center justify-center">
-                    <button className=" bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    <button className=" w-full bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit">Log In</button>
                 </div>
                 <div className='text-center pt-3 content-center justify-center flex-col '>
                     <p>Don't have an account?</p>
-                    <p onClick={handleDemo} className=" cursor-pointer bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    <p  onClick={handleDemo} className=" w-full cursor-pointer bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                        >Demo Log In</p>
                        <div className='pt-3'>
-                    <Link onClick={() => setOpen(false)} to='/signup' className="cursor-pointer bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    <Link  onClick={() => setOpen(false)} to='/signup' className=" w-full cursor-pointer bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         >Sign Up</Link>
                     </div>
             </div>

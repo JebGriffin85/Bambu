@@ -38,10 +38,6 @@ function Navbar() {
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-4">
 
-                                    <a href={menu} without rel='noopener noreferrer' target='_blank'>
-                                        <button>PDF</button>
-                                    </a>
-
                                     <NavLink to='/gallery'
                                         className=" hover:bg-gray-700 text-gray-300 px-3 py-2 rounded-md text-sm font-medium">
                                         Gallery
@@ -58,6 +54,12 @@ function Navbar() {
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                                         Book A Table
                                     </NavLink>
+
+                                    
+                                    <a className="m-0 p-0 hover:bg-gray-700 text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+                                     href={menu} without rel='noopener noreferrer' target='_blank'>
+                                     Menu
+                                    </a>
                                     
                                     {sessionUser ? <div onClick={handleLogout} className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</div> :
                                       
@@ -158,6 +160,10 @@ function Navbar() {
                                     Book a Table
                                 </NavLink>
 
+                                <a className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                                     href={menu} without rel='noopener noreferrer' target='_blank'>
+                                     Menu
+                                    </a>
 
                                 {sessionUser ? <div onClick={handleLogout} className="cursor-pointer text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Logout</div> : <div
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
